@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Computación e Informática Integradas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            margin: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        caption {
+            font-size: 20px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>{{nombreEmpresa}}<br>{{nombreReporte}}</caption>
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>001</td>
+                <td>Computadora de Escritorio</td>
+                <td>10</td>
+                <td>$800.00</td>
+                <td>$8,000.00</td>
+            </tr>
+            <!-- Más filas según sea necesario -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" style="text-align: right;">Total:</td>
+                <td>$8,000.00</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
