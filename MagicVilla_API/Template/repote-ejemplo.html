@@ -41,14 +41,16 @@
             </tr>
         </thead>
         <tbody>
+            {{#each VillasReporte }}
             <tr>
-                <td>{{numRegistro}}</td>
-                <td>{{codReistro}}</td>
-                <td>{{descripcionArticulo}}</td>
-                <td>{{cantidadArticulo}}</td>
-                <td>{{precioUnitario}}</td>
-                <td>{{total}}</td>
+                <td>{{NumeroRegistro}}</td>
+                <td>{{CoRegistro}}</td>
+                <td>{{DescripcionArticulo}}</td>
+                <td>{{CantidadArticulo}}</td>
+                <td>{{PrecioUnitario}}</td>
+                <td>{{Total}}</td>
             </tr>
+            {{/each}}
             <!-- Más filas según sea necesario -->
         </tbody>
         <tfoot>

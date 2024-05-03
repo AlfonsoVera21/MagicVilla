@@ -25,24 +25,28 @@ namespace MagicVilla_API.Controllers
             source = System.IO.File.ReadAllText(rutaArchivo);
             
             var template = Handlebars.Compile(source);
-
-            //foreach (var item in VillaStore.VillaList)
-            //{
-            //    var numRegistro = item.Id;
-            //    var codReistro = item.Codigo;
-            //    var descripcionArticulo = item.Descripcion;
-            //    var cantidadArticulo = item.Cantidad;
-            //    var precioUnitario = item.PrecioUnitario;
-            //    var total = item.Total;
-            //}
-
-            var data = new
+            VillaReporteTituloDto villaTituloDto = new VillaReporteTituloDto();
+            villaTituloDto.NombreEmpresa = "Empresa 2";
+            villaTituloDto.NombreReporte = "Reporte Empresa2";
+            foreach (var item in VillaStore.VillaList)
             {
-                nombreEmpresa = "EMPRESA 1",
-                nombreReporte = "REPORTE EMPRESA1!",
-                descripcionArticulo = "Laptop"
-            };
-            var result = template(data);
+                VillasReporteDto villasReporteDto = new VillasReporteDto();
+                villasReporteDto.NumeroRegistro = item.Id;
+                villasReporteDto.CoRegistro = item.Codigo;
+                villasReporteDto.DescripcionArticulo = item.Descripcion;
+                villasReporteDto.CantidadArticulo = item.Cantidad;
+                villasReporteDto.PrecioUnitario = item.PrecioUnitario;
+                villasReporteDto.Total = item.Total;
+                villaTituloDto.VillasReporte.Add(villasReporteDto);
+            }
+
+            //var data = new
+            //{
+            //    nombreEmpresa = "EMPRESA 1",
+            //    nombreReporte = "REPORTE EMPRESA1!",
+            //    descripcionArticulo = "Laptop"
+            //};
+            var result = template(villaTituloDto);
             // Conversión de HTML a PDF
             HtmlToPdf converter = new HtmlToPdf();
             PdfDocument doc = converter.ConvertHtmlString(result);
