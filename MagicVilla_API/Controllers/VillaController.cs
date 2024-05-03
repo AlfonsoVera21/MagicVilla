@@ -20,19 +20,27 @@ namespace MagicVilla_API.Controllers
         public IActionResult GetVillas()
         {
             // Template de Handlebars
-
-            string source =
-            @"<div class=""entry"">
-              <h1>{{title}}</h1>
-              <div class=""body"">
-                {{body}}
-              </div>
-          </div>";
+            string rutaArchivo = "Template/repote-ejemplo.html";
+            string source = String.Empty;
+            source = System.IO.File.ReadAllText(rutaArchivo);
+            
             var template = Handlebars.Compile(source);
+
+            //foreach (var item in VillaStore.VillaList)
+            //{
+            //    var numRegistro = item.Id;
+            //    var codReistro = item.Codigo;
+            //    var descripcionArticulo = item.Descripcion;
+            //    var cantidadArticulo = item.Cantidad;
+            //    var precioUnitario = item.PrecioUnitario;
+            //    var total = item.Total;
+            //}
+
             var data = new
             {
-                title = "My new post",
-                body = "This is my first post!"
+                nombreEmpresa = "EMPRESA 1",
+                nombreReporte = "REPORTE EMPRESA1!",
+                descripcionArticulo = "Laptop"
             };
             var result = template(data);
             // Conversión de HTML a PDF
