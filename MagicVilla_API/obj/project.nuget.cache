@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "0Lbt4q8FhN/MdWOPz06L4dALDaJGRHb4UTZXaz3aM9XA09ite2AWN1HQ6YCKig35DPyqd6KQ0a6i94vPezL9sg==",
+  "dgSpecHash": "VzG+7jRzWnXQq99fALYiFa8Tlg4slM/Pj8gKMELdo24smmmMdXiIlBBBROw6zezEeKRe8wy/TMzn2VcHK7j8pA==",
   "success": true,
   "projectFilePath": "C:\\NETCORE\\MagicVilla\\MagicVilla_API\\MagicVilla_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alfonso Vera\\.nuget\\packages\\bouncycastle\\1.8.9\\bouncycastle.1.8.9.nupkg.sha512",
+    "C:\\Users\\Alfonso Vera\\.nuget\\packages\\docx\\3.0.0\\docx.3.0.0.nupkg.sha512",
     "C:\\Users\\Alfonso Vera\\.nuget\\packages\\handlebars.net\\2.1.6\\handlebars.net.2.1.6.nupkg.sha512",
     "C:\\Users\\Alfonso Vera\\.nuget\\packages\\itextsharp\\5.5.13.3\\itextsharp.5.5.13.3.nupkg.sha512",
     "C:\\Users\\Alfonso Vera\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
@@ -80,6 +81,7 @@
     "C:\\Users\\Alfonso Vera\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Users\\Alfonso Vera\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\Alfonso Vera\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\Alfonso Vera\\.nuget\\packages\\system.io.packaging\\4.5.0\\system.io.packaging.4.5.0.nupkg.sha512",
     "C:\\Users\\Alfonso Vera\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\Alfonso Vera\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Alfonso Vera\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",
