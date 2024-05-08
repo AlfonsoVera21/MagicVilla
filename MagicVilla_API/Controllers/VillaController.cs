@@ -64,17 +64,13 @@ namespace MagicVilla_API.Controllers
 
         [HttpGet("generate-word")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult GenerateWord(string filename)
+        public IActionResult GenerateWord(string filename, string nombreGerente)
         {
             using (DocX document = DocX.Load(filename))
             {
-                // Leer el contenido del documento
                 string content = document.Text;
-
                 // Modificar el contenido del documento
-                document.ReplaceText("Hola", "Hola Amigos");
-
-                // Guardar los cambios en el documento
+                document.ReplaceText("VAR_GEREN_FIDE", nombreGerente);
                 document.Save();
             }
             return Ok();
@@ -97,26 +93,6 @@ namespace MagicVilla_API.Controllers
             }
             return Ok(villa);
         }
-
-        //[HttpPost]
-        //[ProducesResponseType(StatusCodes.Status201Created)]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //public ActionResult<VillaDto> CrearVilla([FromBody] VillaDto villaDto) { 
-        //    if(villaDto == null)
-        //    {
-        //        return BadRequest(villaDto);
-        //    }
-        //    if (villaDto.Id > 0)
-        //    {
-        //        return StatusCode(StatusCodes.Status500InternalServerError);
-        //    }
-        //    villaDto.Id = VillaStore.VillaList.OrderByDescending(v => v.Id).FirstOrDefault().Id+1;
-        //    //agregar un objeto a la lista
-        //    VillaStore.VillaList.Add(villaDto);
-        //    //GetVilla es el name que se le da en el meto get(id)
-        //    return CreatedAtRoute("GetVilla",new {id = villaDto.Id },villaDto);
-        //}
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -168,6 +144,35 @@ namespace MagicVilla_API.Controllers
             VillaStore.VillaList.Add(villaDto);
             //GetVilla es el name que se le da en el meto get(id)
             return File(pdfFile, "application/pdf", "GeneratedDocumentPost.pdf");
+        }
+        [HttpPost("crear-contrato")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult PostCrearContrato([FromBody] ContratoDto contratoDto, string templateContrato)
+        {
+            using (DocX document = DocX.Load(templateContrato))
+            {
+                string content = document.Text;
+                // Modificar el contenido del documento
+                document.ReplaceText("VAR_SECIM", contratoDto.VAR_SECIM);
+                document.ReplaceText("VAR_NOM_CONCE", contratoDto.VAR_NOM_CONCE);
+                document.ReplaceText("VAR_LOCAL", contratoDto.VAR_LOCAL);
+                document.ReplaceText("VAR_GEREN_FIDE", contratoDto.VAR_GEREN_FIDE);
+                document.ReplaceText("VAR_TIPGEREN_FIDE", contratoDto.VAR_TIPGEREN_FIDE);
+                document.ReplaceText("VAR_TIPRO_FIDE", contratoDto.VAR_TIPRO_FIDE);
+                document.ReplaceText("VARGERENCONCE", contratoDto.VARGERENCONCE);
+                document.ReplaceText("NOM_CARGO", contratoDto.NOM_CARGO);
+                document.ReplaceText("VAR_MTRO", contratoDto.VAR_MTRO);
+                document.ReplaceText("VAR_VMC", contratoDto.VAR_VMC);
+                document.ReplaceText("LETRA_VMC", contratoDto.LETRA_VMC);
+                document.ReplaceText("var_fec_firma", contratoDto.var_fec_firma);
+                document.ReplaceText("var_anios", contratoDto.var_anios);
+                document.ReplaceText("vardiasc", contratoDto.vardiasc);
+                document.ReplaceText("varmesc", contratoDto.varmesc);
+                document.ReplaceText("varanioC", contratoDto.varanioC);
+                document.Save();
+            }
+
+            return Ok();
         }
 
     }
